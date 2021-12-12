@@ -17,7 +17,7 @@ App = {
     $('#ouiVote').html(ouiVote.toString(10))
     const nonVote = await projet_referendum.getNon()
     $('#nonVote').html(nonVote.toString(10))
-    const nomReferendum = await projet_referendum.getNomReferundum()
+    const nomReferendum = await projet_referendum.getNomReferendum()
     $('#nomReferendum').html(nomReferendum)
     const contribution = await projet_referendum.getContribution()
     $('#donRealiser').html(contribution.toString(10))
