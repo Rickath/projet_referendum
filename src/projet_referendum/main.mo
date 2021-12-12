@@ -51,7 +51,7 @@ shared(msg) actor class(){
 
     // Renvoyer le montant à dépenser pour un don
     public query func getPrixDon() : async Nat {
-        return maMention.non;
+        return maMention.prixContribution;
     };
 
     // Renvoyer le montant des dons effectués jusqu'à présent
@@ -73,6 +73,7 @@ shared(msg) actor class(){
         return canVote;
     };
 
+    //Fonction pour voter oui
     public shared(msg) func voteOui() : async Text {
         if (hasPermissionToVote(msg.caller)){
             listHasVoted := Array.append(listHasVoted,Array.make(msg.caller));
@@ -82,6 +83,17 @@ shared(msg) actor class(){
         return "Vous avez déjà voté";
     };
 
+    //Fonction pour voter non
+    public shared(msg) func voteNon() : async Text {
+        if (hasPermissionToVote(msg.caller)){
+            listHasVoted := Array.append(listHasVoted,Array.make(msg.caller));
+            maMention.non := maMention.non + 1;
+            return "Votre vote non a bien été enregistré";
+        };
+        return "Vous avez déjà voté";
+    };
+
+    //Fonction example qui renvoie hello + l'identité (le principal)
     public shared(msg) func greet() : async Text {
         return "Hello, " # Principal.toText(msg.caller) # "!";
     };

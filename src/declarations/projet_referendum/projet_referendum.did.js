@@ -7,6 +7,7 @@ export const idlFactory = ({ IDL }) => {
     'getOui' : IDL.Func([], [IDL.Nat], ['query']),
     'getPrixDon' : IDL.Func([], [IDL.Nat], ['query']),
     'greet' : IDL.Func([], [IDL.Text], []),
+    'voteNon' : IDL.Func([], [IDL.Text], []),
     'voteOui' : IDL.Func([], [IDL.Text], []),
   });
   return anon_class_8_1;
