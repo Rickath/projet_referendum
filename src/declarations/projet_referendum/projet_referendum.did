@@ -1,0 +1,12 @@
+type anon_class_8_1 = 
+ service {
+   callerPrincipal: () -> (principal);
+   getContribution: () -> (nat64) query;
+   getNomReferendum: () -> (text) query;
+   getNon: () -> (nat) query;
+   getOui: () -> (nat) query;
+   getPrixDon: () -> (nat) query;
+   greet: () -> (text);
+   voteOui: () -> (text);
+ };
+service : () -> anon_class_8_1

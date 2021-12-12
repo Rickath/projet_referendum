@@ -1,22 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>projet_referendum</title>
-    <base href="/" />
-    <link rel="icon" href="favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="main.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>REFERENDUM </title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
   </head>
-  <body>
-    <main>
-      <img src="logo.png" alt="DFINITY logo" />
-      <form action="#">
-        <label for="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting"></section>
-    </main>
+  <body style="padding-top : 60px;">
+    
+<nav class="navbar navbar-expend-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">TP1: D-Referendum</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+        <li> <font color="white"> Nom du Referendum: <span id="nomReferendum"></span></font></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+ <div id="laPage"  class="container-fluid">
+   <div class="row">
+              
+      <div  class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="Images/Tree.png" class="card-img-top" alt="Save Amazon">
+          <div class="card-body">
+            <h5 class="card-title">La foret Amazonienne </h5>
+              <h6 class="card-subtitle mb-2 text-muted">Mesure pour la protection de l'Amazon</h6>
+              <p class="card-text">
+                <ul class="nav navbar-nav navbar-right">
+                  <li>Loi 1: Protegeons l'Amazon.</li>
+                  <li>Loi 2: Protegeons l'Amazon.</li>
+                </ul>
+              </p>
+          </div>
+        </div>
+      </div>
+
+     <div  class="col-lg-4">
+      <div class="jumbotron">
+        <h5>Resultat Courant:</h5>
+        <p>Num de vote pour OUI : <span id="ouiVote"></span></p>
+        <p>Num de vote pour NON : <span id="nonVote"></span></p>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">À vous de voter:</h5>
+          <form onSubmit="App.addVote(); return false;" class="" role="form">
+          <div class="form-group">
+
+            <div  class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="pourVoterOui" name="optionVote" value ="1">
+              <label class="custom-control-label" for="pourVoterOui" >OUI, je suis pour ce referendum</label>
+            </div>
+            <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="pourVoterNon" name="optionVote" value ="2">
+            <label class="custom-control-label" for="pourVoterNon" >NON, je suis contre</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Voter</button>
+        </form>
+      </div>
+      </div>
+      </div>
+
+
+
+      </div>
+        <div  class="row">
+        <div  class="col-lg-8">
+         <div class="card">
+          <div class="card-body">
+            Vous etes connecter à la blockchain avec votre compte numero: <br/>
+            <span id="account"> </span>
+          </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Faite un don de pour sauver l'Amazonie</h5>
+            <p> Le prix d'un don est de: <span id="prix"></span> ETH</p>
+            <form onSubmit="App.donner(); return false;" class="" role="form">
+            <button type="submit" class="btn btn-primary">Faire un Don</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="jumbotron">
+          <h5>Montant des Dons Courants:</h5>
+          <p><span id="donRealiser"></span>ETH</p>
+        </div>
+
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
