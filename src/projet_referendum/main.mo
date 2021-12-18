@@ -12,8 +12,6 @@ shared(msg) actor class(){
         nomReferendum: Text;
         var oui : Nat;
         var non : Nat;
-        prixContribution : Nat;
-        var balance : Nat64;
     };
 
     stable var maMention : Mention = {
@@ -21,9 +19,6 @@ shared(msg) actor class(){
         nomReferendum = "AMAZON";
         var oui = 10;
         var non = 9;
-        prixContribution = 1;
-        // Une variable balance stable qui va conserver le solde du canister (qui évolue via les dons)
-        var balance = 0;
     };
 
     // Une liste "stable" (~ statique) hasVoted qui liste tous les Principal (~ identifiant) qui ont voté
@@ -47,16 +42,6 @@ shared(msg) actor class(){
     // Renvoyer le nombre de non au référundum enregistrés
     public query func getNon() : async Nat {
         return maMention.non;
-    };
-
-    // Renvoyer le montant à dépenser pour un don
-    public query func getPrixDon() : async Nat {
-        return maMention.prixContribution;
-    };
-
-    // Renvoyer le montant des dons effectués jusqu'à présent
-    public query func getContribution() : async Nat64 {
-        return maMention.balance;
     };
 
     // Tester l'égalité de deux Principal
@@ -97,4 +82,5 @@ shared(msg) actor class(){
     public shared(msg) func greet() : async Text {
         return "Hello, " # Principal.toText(msg.caller) # "!";
     };
+
 };
